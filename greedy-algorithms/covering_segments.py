@@ -5,12 +5,18 @@ from collections import namedtuple
 Segment = namedtuple('Segment', 'start end')
 
 def optimal_points(segments):
-    points = []
-    print(segments)
-    #write your code here
+    # sort the points by their right point
+    segments.sort(key=lambda x: x.end)
+    # add the right point of the most left segment
+    points = [segments.pop(0).end]
+    # now we will add only right points of segments
     for s in segments:
-        points.append(s.start)
-        points.append(s.end)
+        # if the left point in the current segment
+        # is more to the right than the last added
+        # right point, then append the right end
+        # of the segment
+        if s.start > points[-1]:
+            points.append(s.end)
     return points
 
 if __name__ == '__main__':
