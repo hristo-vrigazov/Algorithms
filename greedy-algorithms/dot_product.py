@@ -5,6 +5,8 @@ import sys
 def min_dot_product(a, b):
     #write your code here
     res = 0
+    a = sorted(a, reverse=True)
+    b = sorted(b)
     for i in range(len(a)):
         res += a[i] * b[i]
     return res
