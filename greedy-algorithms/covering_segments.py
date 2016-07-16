@@ -6,6 +6,7 @@ Segment = namedtuple('Segment', 'start end')
 
 def optimal_points(segments):
     points = []
+    print(segments)
     #write your code here
     for s in segments:
         points.append(s.start)
