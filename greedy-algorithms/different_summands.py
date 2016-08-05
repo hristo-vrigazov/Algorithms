@@ -3,7 +3,18 @@ import sys
 
 def optimal_summands(n):
     summands = []
-    #write your code here
+    current = n
+    magic = 1
+
+    while current is not 0:
+    	if current <= 2 * magic:
+    		summands.append(current)
+    		current -= current
+    	else:
+    		summands.append(magic)
+    		current -= magic
+    	magic += 1
+
     return summands
 
 if __name__ == '__main__':
